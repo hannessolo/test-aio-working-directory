@@ -27,7 +27,7 @@ jobs:
           os: ${{ matrix.os }}
           version: 8.x.x
       - name: Auth
-        uses: adobe/aio-apps-action@2.0.1
+        uses: hannessolo/aio-apps-action@main
         with:
           os: ${{ matrix.os }}
           command: auth
@@ -40,8 +40,9 @@ jobs:
       - name: Build
         env:
           AIO_RUNTIME_NAMESPACE: ${{ secrets.AIO_RUNTIME_NAMESPACE_PROD }}
-        uses: adobe/aio-apps-action@2.0.1
+        uses: hannessolo/aio-apps-action@main
         with:
+          working-directory: 'subfolder'
           os: ${{ matrix.os }}
           command: build
       - name: Deploy
@@ -54,7 +55,8 @@ jobs:
           AIO_PROJECT_WORKSPACE_ID: ${{ secrets.AIO_PROJECT_WORKSPACE_ID_PROD }}
           AIO_PROJECT_WORKSPACE_NAME: ${{ secrets.AIO_PROJECT_WORKSPACE_NAME_PROD }}
           AIO_PROJECT_WORKSPACE_DETAILS_SERVICES: ${{ secrets.AIO_PROJECT_WORKSPACE_DETAILS_SERVICES_PROD }}
-        uses: adobe/aio-apps-action@2.0.1
+        uses: hannessolo/aio-apps-action@main
         with:
+          working-directory: 'subfolder'
           os: ${{ matrix.os }}
           command: deploy
