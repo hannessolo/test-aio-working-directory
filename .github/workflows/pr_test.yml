@@ -37,13 +37,13 @@ jobs:
       - name: Build
         env:
           AIO_RUNTIME_NAMESPACE: ${{ secrets.AIO_RUNTIME_NAMESPACE_STAGE }}
-        uses: hannessolo/aio-apps-action@main
+        uses: hannessolo/aio-apps-action@master
         with:
           working-directory: 'subfolder'
           os: ${{ matrix.os }}
           command: build
       - name: Test
-        uses: hannessolo/aio-apps-action@main
+        uses: hannessolo/aio-apps-action@master
         with:
           working-directory: 'subfolder'
           os: ${{ matrix.os }}
